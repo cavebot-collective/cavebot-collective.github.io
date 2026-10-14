@@ -11,14 +11,14 @@ npm test
 npm run build
 ```
 
-The build emits a publication-safe `dist/` containing only the HTML, styling, client-side filtering, and allowlisted public catalog.
+The build emits `dist/` with public project overviews for all 11 projects, without private repository URLs or unpublished source artifacts.
 
 ## Rules
 
 - Source repositories remain authoritative for their specs, tests and state.
-- Only approved and public projects are present in the deployed catalog.
+- All 11 projects are discoverable. Public source and unpublished source are labeled separately.
 - A source path is **not** proof of a passing test or a working live demo.
-- Private repository audits are held only in internal documentation, not `dist/`.
+- Unpublished source links and internal audit details are excluded from `dist/`.
 - The future fan-in intake pins project presentation bundles by content digest and source commit; Git submodules are not necessary.
 
 See [architecture](docs/ARCHITECTURE.md) and [11-project source audit](docs/PROJECT-AUDIT.md).
