@@ -12,3 +12,10 @@ h1{font-size:clamp(3.2rem,7vw,6.2rem);max-width:950px;font-weight:700;letter-spa
 .about{padding:42px 0 60px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.3fr;gap:38px}.about p{color:var(--muted);max-width:580px;margin:0}footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);font-size:.74rem;color:var(--muted);padding:26px 0 45px}
 @media(max-width:680px){.masthead{padding:20px 0}.wordmark{letter-spacing:.07em;font-size:.73rem}.nav-link{font-size:.72rem}.intro{padding:65px 0 55px}.intro h1{font-size:clamp(3rem,11vw,4.8rem)}.catalog{padding-top:30px}.catalog-note{display:none}.toolbar{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero{height:200px}.summary{min-height:unset}.about{grid-template-columns:1fr;gap:18px}footer{flex-direction:column}.filter-hint{display:none}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+/* Publication and licensing are project metadata, not repository permission grants. */
+.publication{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px;font-size:.7rem}
+.publication>span{display:inline-flex;align-items:center;border-radius:5px;padding:3px 7px;border:1px solid var(--line)}
+.source-open{color:var(--accent);border-color:#407a70!important}
+.source-unpublished{color:var(--warm);border-color:#695442!important}
+.source-license{color:var(--muted)}
