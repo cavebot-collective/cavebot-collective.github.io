@@ -56,7 +56,14 @@
     article.append(hero(p));
     const body = make("div", "card-body");
     body.append(make("div", "category", p.category));
-    const h = make("h3"); h.append(link(p.url, p.title)); body.append(h);
+    const h = make("h3");
+    h.append(p.source.availability === "publicly_available" ? link(p.url, p.title) : make("span", "", p.title));
+    body.append(h);
+    const publication = make("div", "publication");
+    publication.append(make("span", p.source.availability === "publicly_available" ? "source-open" : "source-unpublished",
+      p.source.availability === "publicly_available" ? "Source publicly available" : "Source unpublished"));
+    if (p.source.license) publication.append(make("span", "source-license", "License: " + p.source.license));
+    body.append(publication);
     body.append(make("p", "summary", p.summary));
     const labels = make("div", "labels");
     p.tags.forEach((t) => labels.append(make("span", "", t)));
@@ -70,8 +77,9 @@
         l.title = slot.state === "source" ? "Repository source, not a hosted demo" : "View evidence source; link does not assert that checks pass";
         evidence.append(l);
       } else {
-        const el = make("span", "slot missing", title + " —");
-        el.title = "Not supplied or not verified";
+        const unpublished = slot && slot.state === "unpublished";
+        const el = make("span", "slot missing", title + (unpublished ? " · unpublished" : " —"));
+        el.title = unpublished ? "Evidence exists in an unpublished repository; no public link" : "Not supplied or not verified";
         evidence.append(el);
       }
     });
@@ -118,7 +126,12 @@
     .then((response) => { if (!response.ok) throw Error("Catalog HTTP " + response.status); return response.json(); })
     .then((catalog) => {
       if (catalog.schema_version !== 1 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
-      if (catalog.projects.some((p) => p.visibility !== "public" || p.publication !== "approved")) throw Error("Unapproved gallery entry");
+      if (catalog.projects.some((p) =>
+        p.publication !== "listed" ||
+        !p.source || !["unpublished", "publicly_available"].includes(p.source.availability) ||
+        (p.source.availability === "unpublished" && (p.url || Object.values(p.slots).some((slot) => slot && slot.url))) ||
+        (p.source.availability === "publicly_available" && !p.url)
+      )) throw Error("Invalid source publication boundary");
       setup(catalog.projects);
     })
     .catch((e) => {
