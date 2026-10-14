@@ -1,6 +1,6 @@
 # Cavebot Collective project inventory and gallery slot audit
 
-Observed on 2026-10-13 via default-branch Git trees and README documents. This is a *source presence audit*, not a test execution audit. `candidate` means suggested gallery representation, not an already available hosted asset. Private repository details in this document are for internal planning only and **must not be copied to the public Pages artifact**.
+Observed on 2026-10-13 via default-branch Git trees and README documents. This is a *source presence audit*, not a test execution audit. `candidate` means suggested gallery representation, not an already available hosted asset. Detailed private source paths and internal audit evidence in this document are for planning only. Project names and approved descriptions are public in the gallery; source and confidential artifacts are not.
 
 | Project | Visibility | Best hero/demo target | Normative spec candidate | Test evidence candidate | Workflow candidate | Residual |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -35,4 +35,4 @@ Observed on 2026-10-13 via default-branch Git trees and README documents. This i
 
 Each participating repo should own a manifest and CI producer specifying `hero`, `demo`, `specification`, `tests`, `ci` and `provenance` output slots. Each slot has `state`, `kind`, `source_ref`, `digest`, `uri`, `verification`, and `residual`; absence must never be silently interpreted as zero or success. The gallery reads only an allowlisted and checksum-locked subset. Real statuses require workflow-run identities and timestamps.
 
-**No private project has been approved for public display by this initial implementation.**
+**All 11 project identities and high-level overviews are publicly listed.** Nine repositories retain unpublished source. Project-specific evidence and source links are not made public solely by listing a project.
