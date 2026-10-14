@@ -1,0 +1,420 @@
+{
+  "schema_version": 2,
+  "projects": [
+    {
+      "id": "cavebot-collective/bit-carrier",
+      "title": "BitCarrier",
+      "category": "Bit-level algorithms",
+      "summary": "Reusable bit-oriented function primitives with bit-level cryptographic implementations.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "algorithms",
+        "cryptography",
+        "libraries"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Bit string",
+          "Canonicalize",
+          "Algorithm"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/callback-loop",
+      "title": "CallbackLoop",
+      "category": "Scheduling systems",
+      "summary": "Experimental event-loop runtime with single-owner scheduling and explicit asynchronous ingress.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "concurrency",
+        "runtime",
+        "libraries"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Ingress",
+          "Owner loop",
+          "Scheduler"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/conch-set",
+      "title": "ConchSet",
+      "category": "Concurrent collections",
+      "summary": "Semantics-first concurrent wrappers for sets, with coherent operations and snapshots.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "collections",
+        "concurrency",
+        "libraries"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Operations",
+          "Synchronize",
+          "Sets"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/knot-tied",
+      "title": "KnotTied",
+      "category": "Data structures",
+      "summary": "Configurable union-find and disjoint-set implementations, including isolate-capable variants.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "algorithms",
+        "data-structures",
+        "libraries"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Members",
+          "Union / isolate",
+          "Components"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/ndq",
+      "title": "NDQ",
+      "category": "Computational models",
+      "summary": "Proof-of-concept derived work relations where work arises from satisfiable requirements.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "automation",
+        "formal-methods",
+        "research"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Requirements",
+          "Derive work",
+          "Discharge"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/nunchuck-bow-hunting-computer-hacking",
+      "title": "Nunchuck Skills",
+      "category": "Capability mapping",
+      "summary": "A reproducible source-data factory for mapping technical skills, taxonomies and composite competencies with provenance.",
+      "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking",
+      "source": {
+        "availability": "publicly_available",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "data",
+        "research",
+        "taxonomy",
+        "automation"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Source vocabularies",
+          "Normalize & link",
+          "Evidence snapshots"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/blob/main/docs/SOURCES.md",
+          "state": "source"
+        },
+        "tests": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/tree/main/tests",
+          "state": "source"
+        },
+        "ci": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/blob/main/.github/workflows/datasets.yml",
+          "state": "source"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/pdfinspect",
+      "title": "pdfinspect",
+      "category": "Document intelligence",
+      "summary": "Extensible document inspection using typed observations and precedence-based reconciliation.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "developer-tools",
+        "documents",
+        "pipelines"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Inspectors",
+          "Observations",
+          "Reconcile"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/piece-core",
+      "title": "PieceCore",
+      "category": "Foundational components",
+      "summary": "Foundational library project currently at the repository migration stage.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "foundations",
+        "libraries"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Foundation",
+          "Primitives",
+          "Validation"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": null,
+        "tests": null,
+        "ci": null
+      }
+    },
+    {
+      "id": "cavebot-collective/registry-state",
+      "title": "RegistryState",
+      "category": "State acquisition",
+      "summary": "Lossless-first content-addressed acquisition and enrichment of machine state.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "data",
+        "forensics",
+        "storage"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Acquire",
+          "Preserve",
+          "Enrich"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/right-tool",
+      "title": "Right Tool",
+      "category": "Engineering decisions",
+      "summary": "A capability registry, CLI and visual atlas for choosing stronger specialist tools instead of reinventing them.",
+      "url": "https://github.com/cavebot-collective/right-tool",
+      "source": {
+        "availability": "publicly_available",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "architecture",
+        "research",
+        "developer-tools",
+        "visualization"
+      ],
+      "hero": {
+        "kind": "image",
+        "url": "https://raw.githubusercontent.com/cavebot-collective/right-tool/main/docs/capability-topology.svg",
+        "alt": "Capability topology SVG from Right Tool's repository",
+        "fallback": [
+          "Problem",
+          "Capability",
+          "Best-fit tool"
+        ]
+      },
+      "slots": {
+        "demo": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/docs/atlas.html",
+          "state": "source"
+        },
+        "specification": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/PROJECT.md",
+          "state": "source"
+        },
+        "tests": {
+          "url": "https://github.com/cavebot-collective/right-tool/tree/main/tests",
+          "state": "source"
+        },
+        "ci": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/.github/workflows/evidence-audit.yml",
+          "state": "source"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/threadscape",
+      "title": "Threadscape",
+      "category": "Runtime observability",
+      "summary": "Capture and visualize runtime task and thread activity on interactive timelines.",
+      "url": null,
+      "source": {
+        "availability": "unpublished",
+        "license": null
+      },
+      "publication": "listed",
+      "tags": [
+        "concurrency",
+        "observability",
+        "visualization"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Capture",
+          "Correlate",
+          "Timeline"
+        ]
+      },
+      "slots": {
+        "demo": {
+          "state": "unpublished"
+        },
+        "specification": {
+          "state": "unpublished"
+        },
+        "tests": {
+          "state": "unpublished"
+        },
+        "ci": {
+          "state": "unpublished"
+        }
+      }
+    }
+  ]
+}

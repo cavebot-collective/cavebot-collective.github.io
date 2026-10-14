@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101929">
+  <meta name="description" content="Cavebot Collective projects: working software, research, specifications and reproducible evidence.">
+  <title>Projects · Cavebot Collective</title>
+  <link rel="stylesheet" href="./assets/gallery.css">
+  <script src="./assets/gallery.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+  <div class="page-shell">
+    <header class="masthead">
+      <a class="wordmark" href="https://github.com/cavebot-collective" aria-label="Cavebot Collective on GitHub">
+        <span class="wordmark-symbol" aria-hidden="true">◈</span> CAVEBOT <strong>COLLECTIVE</strong>
+      </a>
+      <a class="nav-link" href="https://github.com/orgs/cavebot-collective/repositories">Explore source <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> ENGINEERING / RESEARCH / EXPERIMENTS</div>
+        <h1 id="intro-title">A gallery of <em>working ideas.</em></h1>
+        <p>Libraries, systems, investigations and tools. Each project links back to the evidence: its implementation, specification, demonstration and tests.</p>
+        <div class="intro-meta"><span id="project-total">Project gallery</span><span class="meta-separator" aria-hidden="true"></span><span>Evidence before claims</span></div>
+      </section>
+      <section id="projects" class="catalog" aria-labelledby="projects-title">
+        <div class="catalog-heading">
+          <div><div class="eyebrow">THE COLLECTION</div><h2 id="projects-title">Projects <span id="count" class="count" aria-live="polite"></span></h2></div>
+          <p class="catalog-note">Filter by concern, inspect the work, follow the evidence.</p>
+        </div>
+        <div class="toolbar">
+          <label class="search-wrap" for="query"><span aria-hidden="true">⌕</span><input type="search" id="query" placeholder="Search projects, concerns, technology…" autocomplete="off"></label>
+          <label class="sort-wrap" for="sort"><span>Sort</span><select id="sort"><option value="title">Name A–Z</option><option value="evidence">Most public evidence links</option><option value="category">Category</option></select></label>
+        </div>
+        <fieldset class="filters" id="filters"><legend>Filter by concern <span class="filter-hint">— select multiple</span></legend><div id="tags" class="tag-cloud"></div><button id="clear" type="button" class="clear-button" hidden>Clear filters ×</button></fieldset>
+        <div id="cards" class="cards" aria-live="polite" aria-busy="true"></div>
+        <div id="empty" class="empty" hidden>No projects match these filters. <button type="button" id="reset">Show all</button></div>
+        <noscript><p>Enable JavaScript to use sorting and filtering. View the public projects on <a href="https://github.com/cavebot-collective/right-tool">Right Tool</a> and <a href="https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking">Nunchuck Skills</a>.</p></noscript>
+      </section>
+      <section class="about" aria-labelledby="method-title">
+        <div><div class="eyebrow">METHOD</div><h2 id="method-title">Make the work inspectable.</h2></div>
+        <p>Gallery slots are sourced from versioned, provenance-bearing outputs. “Available” means a source exists, not that a test passed. Concept diagrams are labeled as such. Project discovery does not grant source or contribution access.</p>
+      </section>
+    </main>
+    <footer><span>© Cavebot Collective</span><span>Project evidence is authored in the source repositories.</span></footer>
+  </div>
+</body>
+</html>
