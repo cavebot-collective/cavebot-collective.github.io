@@ -2,7 +2,7 @@
 
 ## Decision
 
-The homepage consumes independent, versioned project presentation bundles. It should not compile every project from Git submodules. The first version uses a curated, version-controlled public catalog at `gallery/projects.json`; a future fan-in adapter can fetch independently produced bundles without changing the card UI.
+The homepage consumes independent, versioned project presentation bundles. It should not compile every project from Git submodules. The first version uses a curated, version-controlled public gallery catalog at `gallery/projects.json`; a future fan-in adapter can fetch independently produced bundles without changing the card UI.
 
 ```text
 project repository: tests + specification + demo + visual
@@ -36,7 +36,7 @@ The catalog schema in `gallery/contract.schema.json` is a **publication projecti
 
 ## Publication and trust boundary
 
-Repository visibility is not publication permission. The build never enumerates private repositories or publishes their metadata automatically. A public repository requires explicit catalog admission; a private repository requires separate, explicit approval. Project media, links and demos must be accessible without repository credentials. The build copies only approved files into `dist/`.
+Project discoverability and source access are independent. All 11 project identities and approved short descriptions are publicly discoverable. Private repositories are explicitly labeled **Source unpublished**; public repositories are labeled **Source publicly available**. The build never includes unpublished source URLs or credentials. Project-owned demos, images, and evidence are published only if they are separately safe to expose. License identifiers appear only when a public repository license is verified; lack of a verified license must not be described as open-source licensing.
 
 Avoid directly embedding untrusted HTML in the main Pages origin; prefer a sandboxed or isolated demo origin. Validate types and sanitize untrusted SVG at artifact intake. Do not place tokens or write privileges in the browser.
 
@@ -44,7 +44,7 @@ A private source repository can still produce a publicly visible Pages site, dep
 
 ## Repository inventory baseline (October 13, 2026)
 
-Cavebot Collective has 12 accessible repositories: 11 candidate project repositories and one initially empty Pages repository. Two candidates are public and represented in the initial catalog. Nine private repositories require publication decisions. This is an inventory, *not* a claim that individual project builds are green.
+Cavebot Collective has 12 accessible repositories: 11 candidate project repositories and one initially empty Pages repository. All 11 projects are represented in the public gallery: two have publicly available source, nine have unpublished source. Their detailed artifacts remain access-controlled. This is an inventory, *not* a claim that individual project builds are green.
 
 ## Planned federated integration
 
