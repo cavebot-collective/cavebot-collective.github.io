@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Cavebot project gallery catalog v1",
+  "title": "Cavebot project gallery publication catalog v2",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,7 +9,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": 1
+      "const": 2
     },
     "projects": {
       "type": "array",
@@ -20,27 +20,43 @@
   },
   "$defs": {
     "slot": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "additionalProperties": false,
-      "required": [
-        "url",
-        "state"
-      ],
-      "properties": {
-        "url": {
-          "type": "string",
-          "pattern": "^https://"
+      "oneOf": [
+        {
+          "type": "null"
         },
-        "state": {
-          "enum": [
-            "source",
-            "published"
-          ]
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "state": {
+              "const": "unpublished"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "state"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "state": {
+              "enum": [
+                "source",
+                "published"
+              ]
+            }
+          }
         }
-      }
+      ]
     },
     "hero": {
       "oneOf": [
@@ -108,7 +124,7 @@
         "category",
         "summary",
         "url",
-        "visibility",
+        "source",
         "publication",
         "tags",
         "hero",
@@ -132,14 +148,14 @@
           "minLength": 1
         },
         "url": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "pattern": "^https://github.com/"
         },
-        "visibility": {
-          "const": "public"
-        },
         "publication": {
-          "const": "approved"
+          "const": "listed"
         },
         "tags": {
           "type": "array",
@@ -174,6 +190,30 @@
             },
             "ci": {
               "$ref": "#/$defs/slot"
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "availability",
+            "license"
+          ],
+          "properties": {
+            "availability": {
+              "enum": [
+                "unpublished",
+                "publicly_available"
+              ]
+            },
+            "license": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1,
+              "description": "Verified SPDX license identifier; null when license is not verified"
             }
           }
         }
