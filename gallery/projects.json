@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "projects": [
+    {
+      "id": "cavebot-collective/right-tool",
+      "title": "Right Tool",
+      "category": "Engineering decisions",
+      "summary": "A capability registry, CLI and visual atlas for choosing stronger specialist tools instead of reinventing them.",
+      "url": "https://github.com/cavebot-collective/right-tool",
+      "visibility": "public",
+      "publication": "approved",
+      "tags": [
+        "architecture",
+        "research",
+        "developer-tools",
+        "visualization"
+      ],
+      "hero": {
+        "kind": "image",
+        "url": "https://raw.githubusercontent.com/cavebot-collective/right-tool/main/docs/capability-topology.svg",
+        "alt": "Capability topology SVG from Right Tool's repository",
+        "fallback": [
+          "Problem",
+          "Capability",
+          "Best-fit tool"
+        ]
+      },
+      "slots": {
+        "demo": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/docs/atlas.html",
+          "state": "source"
+        },
+        "specification": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/PROJECT.md",
+          "state": "source"
+        },
+        "tests": {
+          "url": "https://github.com/cavebot-collective/right-tool/tree/main/tests",
+          "state": "source"
+        },
+        "ci": {
+          "url": "https://github.com/cavebot-collective/right-tool/blob/main/.github/workflows/evidence-audit.yml",
+          "state": "source"
+        }
+      }
+    },
+    {
+      "id": "cavebot-collective/nunchuck-bow-hunting-computer-hacking",
+      "title": "Nunchuck Skills",
+      "category": "Capability mapping",
+      "summary": "A reproducible source-data factory for mapping technical skills, taxonomies and composite competencies with provenance.",
+      "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking",
+      "visibility": "public",
+      "publication": "approved",
+      "tags": [
+        "data",
+        "research",
+        "taxonomy",
+        "automation"
+      ],
+      "hero": {
+        "kind": "concept",
+        "steps": [
+          "Source vocabularies",
+          "Normalize & link",
+          "Evidence snapshots"
+        ]
+      },
+      "slots": {
+        "demo": null,
+        "specification": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/blob/main/docs/SOURCES.md",
+          "state": "source"
+        },
+        "tests": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/tree/main/tests",
+          "state": "source"
+        },
+        "ci": {
+          "url": "https://github.com/cavebot-collective/nunchuck-bow-hunting-computer-hacking/blob/main/.github/workflows/datasets.yml",
+          "state": "source"
+        }
+      }
+    }
+  ]
+}
