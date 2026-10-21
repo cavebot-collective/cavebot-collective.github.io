@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "projects": [
     {
       "id": "cavebot-collective/bit-carrier",
@@ -18,12 +18,7 @@
         "libraries"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Bit string",
-          "Canonicalize",
-          "Algorithm"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -55,12 +50,7 @@
         "libraries"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Ingress",
-          "Owner loop",
-          "Scheduler"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -92,12 +82,7 @@
         "libraries"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Operations",
-          "Synchronize",
-          "Sets"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -129,12 +114,7 @@
         "libraries"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Members",
-          "Union / isolate",
-          "Components"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -166,12 +146,7 @@
         "research"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Requirements",
-          "Derive work",
-          "Discharge"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -204,12 +179,7 @@
         "automation"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Source vocabularies",
-          "Normalize & link",
-          "Evidence snapshots"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -244,12 +214,7 @@
         "pipelines"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Inspectors",
-          "Observations",
-          "Reconcile"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -280,12 +245,7 @@
         "libraries"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Foundation",
-          "Primitives",
-          "Validation"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -311,12 +271,7 @@
         "storage"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Acquire",
-          "Preserve",
-          "Enrich"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": null,
@@ -349,14 +304,7 @@
         "visualization"
       ],
       "hero": {
-        "kind": "image",
-        "url": "https://raw.githubusercontent.com/cavebot-collective/right-tool/main/docs/capability-topology.svg",
-        "alt": "Capability topology SVG from Right Tool's repository",
-        "fallback": [
-          "Problem",
-          "Capability",
-          "Best-fit tool"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": {
@@ -394,12 +342,7 @@
         "visualization"
       ],
       "hero": {
-        "kind": "concept",
-        "steps": [
-          "Capture",
-          "Correlate",
-          "Timeline"
-        ]
+        "kind": "identity"
       },
       "slots": {
         "demo": {
