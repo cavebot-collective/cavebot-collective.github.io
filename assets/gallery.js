@@ -24,31 +24,11 @@
   }
   const availableCount = (p) => Object.values(p.slots).filter((s) => s && s.url).length;
   function hero(p) {
-    const box = make("div", "hero");
-    if (p.hero.kind === "image") {
-      const img = make("img");
-      img.src = p.hero.url;
-      img.alt = p.hero.alt || "Project visual";
-      img.loading = "lazy";
-      img.onerror = () => {
-        img.remove();
-        const fallback = make("div", "pipeline");
-        for (const [i, text] of p.hero.fallback.entries()) {
-          if (i) fallback.append(make("span", "arrow", "→"));
-          fallback.append(make("span", "node", text));
-        }
-        box.prepend(fallback);
-      };
-      box.append(img);
-    } else {
-      const path = make("div", "pipeline");
-      p.hero.steps.forEach((step, i) => {
-        if (i) path.append(make("span", "arrow", "→"));
-        path.append(make("span", "node", step));
-      });
-      box.append(path);
-    }
-    box.append(make("span", "hero-label", p.hero.kind === "image" ? "PROJECT VISUAL" : "CONCEPT DIAGRAM"));
+    // Editorial identity tile: not a technical diagram or an architecture claim.
+    // Do not infer edges, stages, or components from summary text.
+    const box = make("div", "hero hero-identity");
+    box.setAttribute("aria-label", "Project: " + p.title);
+    box.append(make("div", "identity-title", p.title));
     return box;
   }
   function card(p) {
@@ -125,7 +105,7 @@
   fetch("./gallery/projects.json", { cache: "no-store" })
     .then((response) => { if (!response.ok) throw Error("Catalog HTTP " + response.status); return response.json(); })
     .then((catalog) => {
-      if (catalog.schema_version !== 2 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
+      if (catalog.schema_version !== 3 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
       if (catalog.projects.some((p) =>
         p.publication !== "listed" ||
         !p.source || !["unpublished", "publicly_available"].includes(p.source.availability) ||
