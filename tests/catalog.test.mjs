@@ -7,8 +7,8 @@ const schema = JSON.parse(readFileSync('gallery/contract.schema.json', 'utf8'));
 const slots = ['demo', 'specification', 'tests', 'ci'];
 
 test('gallery contract version and complete project inventory', () => {
-  assert.equal(catalog.schema_version, 2);
-  assert.equal(schema.properties.schema_version.const, 2);
+  assert.equal(catalog.schema_version, 3);
+  assert.equal(schema.properties.schema_version.const, 3);
   assert.equal(catalog.projects.length, 11);
   assert.equal(new Set(catalog.projects.map(p => p.id)).size, catalog.projects.length);
 });
@@ -47,16 +47,15 @@ test('each evidence slot is explicitly published, unpublished or unavailable', (
   }
 });
 
-test('hero labels distinguish sourced media from conceptual diagrams', () => {
+test('public gallery does not assert invented architecture through visual placeholders', () => {
   for (const p of catalog.projects) {
-    if (p.hero.kind === 'image') {
-      assert.match(p.hero.url, /^https:\/\//);
-      assert.ok(p.hero.alt && p.hero.fallback.length >= 2);
-    } else {
-      assert.equal(p.hero.kind, 'concept');
-      assert.ok(p.hero.steps.length >= 2 && p.hero.steps.length <= 4);
-    }
+    assert.deepEqual(p.hero, {kind: 'identity'}, p.id + ' must remain editorial identity only');
+    assert.equal('steps' in p.hero, false);
+    assert.equal('fallback' in p.hero, false);
+    assert.equal('url' in p.hero, false);
   }
+  assert.equal(schema.$defs.hero.properties.kind.const, 'identity');
+  assert.equal(schema.$defs.hero.additionalProperties, false);
 });
 
 test('known public sources are cataloged separately from unpublished projects', () => {

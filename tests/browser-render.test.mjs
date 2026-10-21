@@ -60,6 +60,14 @@ test('actual browser loader renders all catalog cards (schema compatibility regr
   assert.equal(elements.get('count').textContent, '11 / 11');
   assert.equal(elements.get('empty').hidden, true);
   assert.equal(elements.get('cards').attributes['aria-busy'], 'false');
+  // Identity panels contain only the project title; no synthetic graph structure.
+  for (const card of cards) {
+    const hero = card.children[0];
+    assert.equal(hero.children.length, 1);
+    assert.equal(hero.children[0].className, 'identity-title');
+    assert.ok(hero.children[0].textContent);
+    assert.equal(hero.children.some(child => ['pipeline', 'node', 'arrow'].includes(child.className)), false);
+  }
   // No private source links should appear on any unpublished-source card.
   for (let index = 0; index < cards.length; index++) {
     const card = cards[index];

@@ -1,6 +1,6 @@
 # Cavebot Collective — project gallery
 
-Responsive, filterable gallery for evidence-backed engineering projects. View `index.html` and the curated `gallery/projects.json` manifest.
+Responsive, filterable gallery for evidence-backed engineering projects. Identity tiles replace non-evidenced schematic placeholders. View `index.html` and the curated `gallery/projects.json` manifest.
 
 ## Develop
 
@@ -26,3 +26,5 @@ See [architecture](docs/ARCHITECTURE.md) and [11-project source audit](docs/PROJ
 ## Publish
 
 GitHub Actions verifies pull requests and deploys on push to `main` after Pages is configured to use GitHub Actions. Repo and Pages visibility are separate decisions.
+
+See [visual evidence policy](docs/VISUAL-EVIDENCE-POLICY.md) before supplying screenshots or semantic diagrams. No visual relationship may be invented to fill an empty slot.

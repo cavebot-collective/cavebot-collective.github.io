@@ -24,7 +24,7 @@ Prefer GitHub Releases or immutable content-addressed storage for durable bundle
 
 A producer may provide:
 - **Identity:** stable id, title, description, topical tags and project phase.
-- **Hero:** source-backed screenshot or actual architecture SVG, including source SHA and media digest. Until present, allow a visually distinct, explicitly labeled *concept diagram*.
+- **Hero:** an editorial typography-only project identity panel by default. Real screenshots/diagrams must pass the [visual evidence policy](VISUAL-EVIDENCE-POLICY.md) and carry artifact provenance before replacing that panel. No invented conceptual topology, flow, stages, or architectural relationships.
 - **Demo:** hosted static demo, deterministic recorded demonstration, or a clearly labeled link to demo source.
 - **Specification:** normative document URL, version and commit.
 - **Tests:** suite entrypoint plus validated machine-readable test result or coverage, with test run URL and observed timestamp. Presence of test files does not imply passing tests.
@@ -61,3 +61,7 @@ Cavebot Collective has 12 accessible repositories: 11 candidate project reposito
 Run `npm test && npm run build` with Node.js 22. Inspect `dist/`, which contains only approved site assets. Configure GitHub Pages to deploy through **GitHub Actions** under Settings → Pages. The workflow verifies on pull requests and deploys on main after review, subject to Pages organization policy.
 
 Do not conflate the site branch with the deployment: a feature branch with a passing test suite is not evidence that Pages is enabled or reachable.
+
+## Visual publication guarantee
+
+Identity panels are not evidence or visualization. No source-independent diagram may be synthesized solely to fill visual space. Promoting a visual to the public gallery requires stable links to the source material, explicit semantic assertions and independent review as described in [VISUAL-EVIDENCE-POLICY.md](VISUAL-EVIDENCE-POLICY.md). This gate is separate from repository discoverability or publication of text.
