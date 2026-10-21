@@ -15,8 +15,13 @@ let html = readFileSync(join(out, 'index.html'), 'utf8');
 for (const path of ['assets/gallery.js', 'assets/gallery.css']) {
   const digest = createHash('sha256').update(readFileSync(join(out, path))).digest('hex').slice(0, 16);
   const href = './' + path;
-  if (!html.includes(href + '"')) throw new Error('Missing asset reference: ' + href);
-  html = html.replace(href + '"', href + '?v=' + digest + '"');
+  const start = html.indexOf(href);
+  if (start < 0) throw new Error('Missing asset reference: ' + href);
+  const end = html.indexOf('"', start);
+  if (end < 0) throw new Error('Unterminated asset reference: ' + href);
+  // Replace an existing source query (used by branch/Jekyll deployment) or
+  // a bare href; always prefer content digests in the custom Actions build.
+  html = html.slice(0, start) + href + '?v=' + digest + html.slice(end);
 }
 writeFileSync(join(out, 'index.html'), html);
 writeFileSync(join(out, '.nojekyll'), '');
