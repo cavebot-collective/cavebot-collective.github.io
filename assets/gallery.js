@@ -32,8 +32,10 @@
       const metrics = make("dl", "registry-metrics");
       for (const metric of p.hero.metrics) {
         const measure = make("div", "registry-measure");
-        measure.append(make("dd", "registry-value", String(metric.value)));
+        // A description list is label (dt) followed by value (dd), even
+        // when CSS chooses to display the number first.
         measure.append(make("dt", "registry-name", metric.label));
+        measure.append(make("dd", "registry-value", String(metric.value)));
         metrics.append(measure);
       }
       panel.append(metrics);
