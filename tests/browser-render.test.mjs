@@ -72,10 +72,12 @@ test('actual browser loader renders all catalog cards (schema compatibility regr
       assert.ok(metrics);
       assert.equal(metrics.children.length,4);
       for (let i=0; i<4; i++) {
+        assert.equal(metrics.children[i].children[0].tagName,'dt');
         assert.equal(metrics.children[i].children[0].textContent,
-          String(project.hero.metrics[i].value));
-        assert.equal(metrics.children[i].children[1].textContent,
           project.hero.metrics[i].label);
+        assert.equal(metrics.children[i].children[1].tagName,'dd');
+        assert.equal(metrics.children[i].children[1].textContent,
+          String(project.hero.metrics[i].value));
       }
     } else {
       assert.equal(tile.children[0].className, 'identity-title');
