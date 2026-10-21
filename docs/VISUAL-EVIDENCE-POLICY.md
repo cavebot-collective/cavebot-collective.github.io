@@ -43,3 +43,11 @@ An INTERPRETATION may be included in an explanatory experiment but must not be s
 ## Residual: genuine demonstrations
 
 The repo audit in `PROJECT-AUDIT.md` identifies likely candidate demonstrations. Follow repo-owned fixtures/specs rather than using the previously invented placeholder diagrams. The closest source-backed candidates include Threadscape's real viewer, Right Tool's documented registry-generated atlas, and the deterministic test/CLI suites in the other projects. Each still needs viewport legibility and a source/semantics review before use as a small card image.
+
+## First accepted observation tile (October 21, 2026)
+
+Right Tool exports a `registry_inventory` preview at `gallery/preview.v1.json` from its canonical `registry/registry.json`. It is not a diagram: it reports four integer cardinalities with their precise labels. The site pins the producer to a full commit SHA and records the input Git blob hash.
+
+The site workflow executes `node scripts/verify_upstream_preview.mjs` to fetch **that immutable source commit** and verify (1) source Git blob integrity, (2) exporter values, (3) displayed labels and numerical values, and (4) referential integrity of the recommendation endpoints. No relation topology, completeness claim, performance, or execution order is inferred. If verification fails, CI fails and the visual is not admitted for deployment.
+
+The remaining project cards retain identity-only hero panels. Private project sources and test data are not consulted or published by this producer.
