@@ -28,3 +28,7 @@ See [architecture](docs/ARCHITECTURE.md) and [11-project source audit](docs/PROJ
 GitHub Actions verifies pull requests and deploys on push to `main` after Pages is configured to use GitHub Actions. Repo and Pages visibility are separate decisions.
 
 See [visual evidence policy](docs/VISUAL-EVIDENCE-POLICY.md) before supplying screenshots or semantic diagrams. No visual relationship may be invented to fill an empty slot.
+
+## First evidence-backed visual
+
+Right Tool's public registry exposes a generated and checked `gallery/preview.v1.json` with four unambiguous inventory measures. The site displays those counts as a statistics tile, not an architecture diagram. CI independently checks the snapshot against a pinned source commit. All other projects remain identity-only pending equivalent source-backed evidence.

@@ -60,13 +60,29 @@ test('actual browser loader renders all catalog cards (schema compatibility regr
   assert.equal(elements.get('count').textContent, '11 / 11');
   assert.equal(elements.get('empty').hidden, true);
   assert.equal(elements.get('cards').attributes['aria-busy'], 'false');
-  // Identity panels contain only the project title; no synthetic graph structure.
-  for (const card of cards) {
-    const hero = card.children[0];
-    assert.equal(hero.children.length, 1);
-    assert.equal(hero.children[0].className, 'identity-title');
-    assert.ok(hero.children[0].textContent);
-    assert.equal(hero.children.some(child => ['pipeline', 'node', 'arrow'].includes(child.className)), false);
+  const ordered = [...catalog.projects].sort((a,b) =>
+    new Intl.Collator(undefined, { sensitivity: 'base', numeric: true }).compare(a.title,b.title));
+  for (let index=0; index<cards.length; index++) {
+    const tile = cards[index].children[0];
+    const project = ordered[index];
+    assert.equal(tile.children.length,1);
+    if(project.hero.kind === 'registry_inventory') {
+      assert.equal(tile.children[0].className,'registry-panel');
+      const metrics = tile.children[0].children.find(x => x.className === 'registry-metrics');
+      assert.ok(metrics);
+      assert.equal(metrics.children.length,4);
+      for (let i=0; i<4; i++) {
+        assert.equal(metrics.children[i].children[0].textContent,
+          String(project.hero.metrics[i].value));
+        assert.equal(metrics.children[i].children[1].textContent,
+          project.hero.metrics[i].label);
+      }
+    } else {
+      assert.equal(tile.children[0].className, 'identity-title');
+      assert.equal(tile.children[0].textContent,project.title);
+    }
+    assert.equal(tile.children.some(child =>
+      ['pipeline', 'node', 'arrow'].includes(child.className)),false);
   }
   // No private source links should appear on any unpublished-source card.
   for (let index = 0; index < cards.length; index++) {

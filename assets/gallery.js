@@ -24,8 +24,33 @@
   }
   const availableCount = (p) => Object.values(p.slots).filter((s) => s && s.url).length;
   function hero(p) {
-    // Editorial identity tile: not a technical diagram or an architecture claim.
-    // Do not infer edges, stages, or components from summary text.
+    if (p.hero.kind === "registry_inventory") {
+      const box = make("div", "hero hero-registry");
+      box.setAttribute("aria-label", "Observed registry inventory for " + p.title);
+      const panel = make("div", "registry-panel");
+      panel.append(make("div", "registry-heading", p.hero.title));
+      const metrics = make("dl", "registry-metrics");
+      for (const metric of p.hero.metrics) {
+        const measure = make("div", "registry-measure");
+        measure.append(make("dd", "registry-value", String(metric.value)));
+        measure.append(make("dt", "registry-name", metric.label));
+        metrics.append(measure);
+      }
+      panel.append(metrics);
+      const provenance = make("div", "registry-provenance");
+      provenance.append(make("span", "", "OBSERVED · REGISTRY ENTRIES"));
+      const source = p.hero.evidence;
+      provenance.append(link(
+        "https://github.com/" + source.project_id + "/blob/" +
+          source.source_commit + "/" + source.source_path,
+        "View source ↗", "registry-source"
+      ));
+      panel.append(provenance);
+      box.append(panel);
+      return box;
+    }
+    if (p.hero.kind !== "identity") throw Error("Unsupported hero kind");
+    // Editorial identity tile: never infer edges or stages from prose.
     const box = make("div", "hero hero-identity");
     box.setAttribute("aria-label", "Project: " + p.title);
     box.append(make("div", "identity-title", p.title));
@@ -105,7 +130,7 @@
   fetch("./gallery/projects.json", { cache: "no-store" })
     .then((response) => { if (!response.ok) throw Error("Catalog HTTP " + response.status); return response.json(); })
     .then((catalog) => {
-      if (catalog.schema_version !== 3 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
+      if (catalog.schema_version !== 4 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
       if (catalog.projects.some((p) =>
         p.publication !== "listed" ||
         !p.source || !["unpublished", "publicly_available"].includes(p.source.availability) ||

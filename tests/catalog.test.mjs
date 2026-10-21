@@ -7,8 +7,8 @@ const schema = JSON.parse(readFileSync('gallery/contract.schema.json', 'utf8'));
 const slots = ['demo', 'specification', 'tests', 'ci'];
 
 test('gallery contract version and complete project inventory', () => {
-  assert.equal(catalog.schema_version, 3);
-  assert.equal(schema.properties.schema_version.const, 3);
+  assert.equal(catalog.schema_version, 4);
+  assert.equal(schema.properties.schema_version.const, 4);
   assert.equal(catalog.projects.length, 11);
   assert.equal(new Set(catalog.projects.map(p => p.id)).size, catalog.projects.length);
 });
@@ -47,15 +47,29 @@ test('each evidence slot is explicitly published, unpublished or unavailable', (
   }
 });
 
-test('public gallery does not assert invented architecture through visual placeholders', () => {
-  for (const p of catalog.projects) {
-    assert.deepEqual(p.hero, {kind: 'identity'}, p.id + ' must remain editorial identity only');
-    assert.equal('steps' in p.hero, false);
-    assert.equal('fallback' in p.hero, false);
-    assert.equal('url' in p.hero, false);
-  }
-  assert.equal(schema.$defs.hero.properties.kind.const, 'identity');
-  assert.equal(schema.$defs.hero.additionalProperties, false);
+test('verified visual is a source-backed registry inventory, not a made-up diagram', () => {
+  const previews = catalog.projects.filter(p => p.hero.kind === 'registry_inventory');
+  assert.equal(previews.length, 1);
+  const p = previews[0];
+  assert.equal(p.id, 'cavebot-collective/right-tool');
+  assert.equal(p.hero.evidence.project_id, p.id);
+  assert.match(p.hero.evidence.source_commit, /^[a-f0-9]{40}$/);
+  assert.match(p.hero.evidence.source_git_blob_sha, /^[a-f0-9]{40}$/);
+  assert.deepEqual(Object.fromEntries(p.hero.metrics.map(m => [m.id, m.value])), {
+    systems: 26, triggers: 25, recommendations: 26, families: 17
+  });
+  assert.equal(p.hero.evidence.source_path, 'registry/registry.json');
+  assert.equal(p.hero.evidence.derived_by, 'scripts/export_gallery.mjs');
+  assert.equal(p.hero.evidence.producer_path, 'gallery/preview.v1.json');
+  const nonData = Object.keys(p.hero).filter(k => !['kind','title','description','metrics','evidence'].includes(k));
+  assert.deepEqual(nonData,[]);
+});
+
+test('unverified projects remain identity-only without invented relations', () => {
+  const unresolved = catalog.projects.filter(p => p.hero.kind === 'identity');
+  assert.equal(unresolved.length, 10);
+  for (const p of unresolved) assert.deepEqual(p.hero, {kind:'identity'});
+  assert.equal(schema.$defs.hero.oneOf.length, 2);
 });
 
 test('known public sources are cataloged separately from unpublished projects', () => {

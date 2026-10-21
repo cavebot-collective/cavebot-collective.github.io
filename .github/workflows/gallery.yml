@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+      - run: node scripts/verify_upstream_preview.mjs
       - run: npm run build
       - uses: actions/upload-artifact@v4
         with:
