@@ -119,13 +119,13 @@
     $("sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
     $("clear").addEventListener("click", clear);
     $("reset").addEventListener("click", clear);
-    $("project-total").textContent = projects.length + " published project" + (projects.length === 1 ? "" : "s");
+    $("project-total").textContent = projects.length + " project" + (projects.length === 1 ? "" : "s") + " in gallery";
     render();
   }
   fetch("./gallery/projects.json", { cache: "no-store" })
     .then((response) => { if (!response.ok) throw Error("Catalog HTTP " + response.status); return response.json(); })
     .then((catalog) => {
-      if (catalog.schema_version !== 1 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
+      if (catalog.schema_version !== 2 || !Array.isArray(catalog.projects)) throw Error("Invalid gallery catalog");
       if (catalog.projects.some((p) =>
         p.publication !== "listed" ||
         !p.source || !["unpublished", "publicly_available"].includes(p.source.availability) ||
