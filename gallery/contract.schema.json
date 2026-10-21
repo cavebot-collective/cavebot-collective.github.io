@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Cavebot project gallery publication catalog v3",
+  "title": "Cavebot project gallery publication catalog v4",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,7 +9,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": 3
+      "const": 4
     },
     "projects": {
       "type": "array",
@@ -59,17 +59,110 @@
       ]
     },
     "hero": {
-      "description": "Presentation identity only. Semantic diagrams and screenshots require a separate source-verified visual artifact admission path; no invented relationships.",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "properties": {
-        "kind": {
-          "const": "identity"
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "identity"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "title",
+            "description",
+            "metrics",
+            "evidence"
+          ],
+          "properties": {
+            "kind": {
+              "const": "registry_inventory"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "metrics": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "label",
+                  "value"
+                ],
+                "properties": {
+                  "id": {
+                    "enum": [
+                      "systems",
+                      "triggers",
+                      "recommendations",
+                      "families"
+                    ]
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "value": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              }
+            },
+            "evidence": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "project_id",
+                "source_commit",
+                "source_path",
+                "source_git_blob_sha",
+                "derived_by",
+                "producer_path"
+              ],
+              "properties": {
+                "project_id": {
+                  "const": "cavebot-collective/right-tool"
+                },
+                "source_commit": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$"
+                },
+                "source_path": {
+                  "const": "registry/registry.json"
+                },
+                "source_git_blob_sha": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$"
+                },
+                "derived_by": {
+                  "const": "scripts/export_gallery.mjs"
+                },
+                "producer_path": {
+                  "const": "gallery/preview.v1.json"
+                }
+              }
+            }
+          }
         }
-      }
+      ]
     },
     "project": {
       "type": "object",
