@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Cavebot project gallery publication catalog v2",
+  "title": "Cavebot project gallery publication catalog v3",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,7 +9,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": 2
+      "const": 3
     },
     "projects": {
       "type": "array",
@@ -59,61 +59,17 @@
       ]
     },
     "hero": {
-      "oneOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "kind",
-            "steps"
-          ],
-          "properties": {
-            "kind": {
-              "const": "concept"
-            },
-            "steps": {
-              "type": "array",
-              "minItems": 2,
-              "maxItems": 4,
-              "items": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "kind",
-            "url",
-            "alt",
-            "fallback"
-          ],
-          "properties": {
-            "kind": {
-              "const": "image"
-            },
-            "url": {
-              "type": "string",
-              "pattern": "^https://"
-            },
-            "alt": {
-              "type": "string",
-              "minLength": 1
-            },
-            "fallback": {
-              "type": "array",
-              "minItems": 2,
-              "maxItems": 4,
-              "items": {
-                "type": "string"
-              }
-            }
-          }
+      "description": "Presentation identity only. Semantic diagrams and screenshots require a separate source-verified visual artifact admission path; no invented relationships.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "identity"
         }
-      ]
+      }
     },
     "project": {
       "type": "object",
