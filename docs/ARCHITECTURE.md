@@ -24,7 +24,7 @@ Prefer GitHub Releases or immutable content-addressed storage for durable bundle
 
 A producer may provide:
 - **Identity:** stable id, title, description, topical tags and project phase.
-- **Hero:** an editorial typography-only project identity panel by default. Real screenshots/diagrams must pass the [visual evidence policy](VISUAL-EVIDENCE-POLICY.md) and carry artifact provenance before replacing that panel. No invented conceptual topology, flow, stages, or architectural relationships.
+- **Hero:** an editorial typography-only project identity panel by default. An exception may be made for an independently source-verified, non-relational observation tile such as Right Tool's registry inventory (pinned upstream commit, producer manifest, source Git blob and verified cardinalities). Real screenshots/diagrams must pass the [visual evidence policy](VISUAL-EVIDENCE-POLICY.md) before admission. No invented conceptual topology, flow, stages, or architectural relationships.
 - **Demo:** hosted static demo, deterministic recorded demonstration, or a clearly labeled link to demo source.
 - **Specification:** normative document URL, version and commit.
 - **Tests:** suite entrypoint plus validated machine-readable test result or coverage, with test run URL and observed timestamp. Presence of test files does not imply passing tests.
@@ -65,3 +65,9 @@ Do not conflate the site branch with the deployment: a feature branch with a pas
 ## Visual publication guarantee
 
 Identity panels are not evidence or visualization. No source-independent diagram may be synthesized solely to fill visual space. Promoting a visual to the public gallery requires stable links to the source material, explicit semantic assertions and independent review as described in [VISUAL-EVIDENCE-POLICY.md](VISUAL-EVIDENCE-POLICY.md). This gate is separate from repository discoverability or publication of text.
+
+## Executable provenance gate (first implementation)
+
+The source repository `cavebot-collective/right-tool` owns the exporter `scripts/export_gallery.mjs` and `gallery/preview.v1.json`; CI there checks byte-for-byte regeneration from `registry/registry.json`. The site locks the upstream source commit in the Right Tool hero and runs `scripts/verify_upstream_preview.mjs` as a cross-repository publication gate. This fetches **only the pinned public commit**, checks the exported preview and source blob, and derives all four values independently.
+
+This is a first vertical slice of the project-owned artifact contract, not general support for arbitrary external media. Other project heroes remain identity-only until a comparable producer/acceptance chain exists.
